@@ -1,8 +1,30 @@
+body, html {
+    height: 100%;
+}
+
+.bg {
+    background-image: url("../images/thumb-350-312832.jpg");
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 #logo {
     display: block;
-    margin: 0 auto;
+    float: right;
 }
+
+
+
 .wrapper {
     margin-left: 20px;
+}
+
+#DefenderFont {
+    float: right;
+}
+
+#AttackButton {
+    display:block;
+    
 }
