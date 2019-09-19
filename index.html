@@ -68,9 +68,9 @@
                 <div class="row">
                     <div class="col-4 Attacker">
                         <a href="https://fontmeme.com/pokemon-font/"><img src="https://fontmeme.com/permalink/190918/806d37e1f143dd71c8c1922f30f56c00.png" alt="pokemon-font" border="0"></a>
-                        <div id="SelectedAttacker"></div>
+                        <div class="Attacker" id="SelectedAttacker"></div>
                     </div>
-                    <div class="col-4 GameStats"></div>
+                    <div class="col-4" id ="GameStats"></div>
                     <div class="col-4 Defender ">
                         <div class="row">
                             <div class="col-12">
@@ -88,7 +88,7 @@
 
     <script type="text/javascript">
 
-    var Pikacku = {
+    var Pikachu = {
         HP: 100,
         Attack: 7,
         CounterAttack: 4,
@@ -112,17 +112,36 @@
         CounterAttack: 1,
     }
 
+    var HealthPoints = 0;
+    var AttackPower = 0;
+    var CounterPower = 0;
+
+    var E_HealthPoints = 0;
+    var E_AttackPower = 0;
+    var E_CounterPower = 0;
+    $("#Pikachu").val(Pikachu);
+    $("#Bulbasaur").val(Bulbasaur);
+    $("#Charmander").val(Charmander);
+    $("#Squirtle").val(Squirtle);
+
+
     $(".Character").on("click",function () {
-        var ThisID = $(this).attr('id');
-        console.log(ThisID);
+        
         
           $(this).appendTo("#SelectedAttacker");
           $(this).removeClass("Character");
           $(".Character").addClass("Enemy");
           $(".Enemy").removeClass("Character");
-          $(".Enemy").appendTo("#EnemyPick");  
+          $(".Enemy").appendTo("#EnemyPick");
+          HealthPoints = ($(this).val().HP);
+          AttackPower = ($(this).val().Attack);
+          CounterPower = ($(this).val().CounterAttack); 
+          console.log($("#Bulbasaur").val());
+          console.log($("#Charmander").val());
+          console.log($("#Squirtle").val());
+
           
-          console.log(Pikacku.HP);
+          
           
 
           //remove character class from this.
@@ -130,7 +149,10 @@
     $(".Enemy").on("click", function(){
 
         $(this).appendTo("#SelectedDefender");
-    
+        
+    });
+
+    $("#AttackButton").on("click",function(){
         
 
     });
