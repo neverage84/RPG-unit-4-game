@@ -40,12 +40,12 @@
                 </div>
                 
              </div>
-             <div class="row PokemonChoice">
-                    <div class="col-8">
-                        <div class="PikDiv Character" id="Pikachu"><img src="assets/images/Pikachu.png" alt="Pikachu" width="200px" height="200px"></div>
-                        <div class="BulbDiv Character" id="Bulbasaur"><img src="assets/images/bulbasaur.png" alt="Bulbasaur" width="200px" height="200px"></div>
-                        <div class="SquirDiv Character" id="Squirtle"><img src="assets/images/Squirtle.png" alt="Squirtle" width="200px" height="200px"></div>
-                        <div class="CharDiv Character" id="Charmander"><img src="assets/images/Charmander.png" alt="Charmander" width="200px" height="200px"></div>
+             <div class="row">
+                    <div class="col-8 PokemonChoice">
+                        <div class="PikDiv Character Reset" id="Pikachu"><img src="assets/images/Pikachu.png" alt="Pikachu" width="200px" height="200px"></div>
+                        <div class="BulbDiv Character Reset" id="Bulbasaur"><img src="assets/images/bulbasaur.png" alt="Bulbasaur" width="200px" height="200px"></div>
+                        <div class="SquirDiv Character Reset" id="Squirtle"><img src="assets/images/Squirtle.png" alt="Squirtle" width="200px" height="200px"></div>
+                        <div class="CharDiv Character Reset" id="Charmander"><img src="assets/images/Charmander.png" alt="Charmander" width="200px" height="200px"></div>
                     </div>
                     
                     <div class="col-4">
@@ -107,27 +107,27 @@
     <script type="text/javascript">
 
     var Pikachu = {
-        HP: 100,
+        HP: 400,
         Attack: 7,
-        CounterAttack: 4,
+        CounterAttack: 14,
     }
     
     var Charmander = {
-        HP: 75,
+        HP: 325,
         Attack: 10,
-        CounterAttack: 5,
+        CounterAttack: 20,
     }
 
     var Bulbasaur = {
-        HP: 150,
+        HP: 475,
         Attack: 4,
-        CounterAttack: 2,
+        CounterAttack: 8,
     }
 
     var Squirtle = {
         HP: 175,
         Attack: 2,
-        CounterAttack: 1,
+        CounterAttack: 4,
     }
     
     var FighterName = "";
@@ -144,6 +144,22 @@
     $("#Bulbasaur").val(Bulbasaur);
     $("#Charmander").val(Charmander);
     $("#Squirtle").val(Squirtle);
+
+    function Reset(){
+        var FighterName = "";
+        var HealthPoints = 0;
+        var AttackPower = 0;
+        var CounterPower = 0;
+
+        var DefenderName = "";
+        var E_HealthPoints = 0;
+        var E_AttackPower = 0;
+        var E_CounterPower = 0;
+
+        $(".Reset").addClass("Character");
+        $(".Reset").removeClass("Enemy");
+        $(".Reset").appendTo(".PokemonChoice");
+    };
 
 
     $(".Character").on("click",function () {
@@ -185,6 +201,12 @@
         E_HealthPoints -= AttackPower;
         HealthPoints -= E_CounterPower;
         $("#GameStats").text(FighterName + " HP: " + HealthPoints + "  |  " + DefenderName + " HP: " + E_HealthPoints + "You attacked " + DefenderName + " for " + AttackPower + " damage. " + DefenderName + " attacked you for " + E_CounterPower + " damage.");
+            if (HealthPoints < 1) {
+                $("#GameStats").text(DefenderName + " defeated " + FighterName + "!!!");
+            }
+            else if (E_HealthPoints < 1) {
+                $("#GameStats").text(FighterName + " defeated " + DefenderName + "!!!");
+            }
         
 
     });
