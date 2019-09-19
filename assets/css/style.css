@@ -48,7 +48,7 @@ h1 {
 #GameStats {
     font-family: 'Old  School Adventures';
     background-color: lightgray;
-    width: 450px;
+    width: 475px;
     height: 100px;
     border: ridge;
     float: right;
@@ -56,7 +56,7 @@ h1 {
 }
 
 .AttackBtn {
-   margin-left: 10px;
+   margin-left: 30px;
 }
 
 @font-face {

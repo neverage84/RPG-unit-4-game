@@ -218,7 +218,7 @@
     $("#AttackButton").on("click",function(){
         E_HealthPoints -= AttackPower;
         HealthPoints -= E_CounterPower;
-        $("#GameStats").text(FighterName + " HP: " + HealthPoints + "  |  " + DefenderName + " HP: " + E_HealthPoints + "You attacked " + DefenderName + " for " + AttackPower + " damage. " + DefenderName + " attacked you for " + E_CounterPower + " damage.");
+        $("#GameStats").text(FighterName + " HP: " + HealthPoints + "  |  " + DefenderName + " HP: " + E_HealthPoints + " You attacked " + DefenderName + " for " + AttackPower + " damage. " + DefenderName + " attacked you for " + E_CounterPower + " damage.");
             if (HealthPoints < 1) {
                 $("#GameStats").text(DefenderName + " defeated " + FighterName + "!!!");
             }
