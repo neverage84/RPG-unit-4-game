@@ -158,6 +158,7 @@
     $("#Bulbasaur").val(Bulbasaur);
     $("#Charmander").val(Charmander);
     $("#Squirtle").val(Squirtle);
+
     function Reset(){
         FighterName = "";
         HealthPoints = 0;
@@ -181,29 +182,7 @@
         sound.play();
     };
     $(".Character").on("click",function () {
-        
-         if (HealthPoints === 0) {
-          $(this).appendTo("#SelectedAttacker");
-          $(this).removeClass("Character");
-          $(".Character").addClass("Enemy");
-          $(".Enemy").removeClass("Character");
-          $(".Enemy").appendTo("#EnemyPick");
-          HealthPoints = ($(this).val().HP);
-          AttackPower = ($(this).val().Attack);
-          CounterPower = ($(this).val().CounterAttack);
-          FighterName = ($(this).attr("id"));
-          $("#GameStats").text(FighterName + " HP: " + HealthPoints);
-          playSound();
-          
-          
-         }
-         
-          
-          
-          
-          //remove character class from this.
-          //Append all .character to Enemy.
-    $(".Enemy").on("click", function(){
+
         if (HealthPoints !== 0 && E_HealthPoints === 0) {
             console.log(HealthPoints);
         $(this).appendTo("#SelectedDefender");
@@ -214,12 +193,42 @@
           console.log($(this).attr("class"));
           $("#GameStats").text(FighterName + " HP: " + HealthPoints + "  |  " + DefenderName + " HP: " + E_HealthPoints); 
           playSound();
-        } 
+
+        }
+
+
+          else if (HealthPoints === 0) {
+          $(this).appendTo("#SelectedAttacker");
+          $(this).removeClass("Character");
+          $(".Character").addClass("Enemy");
+          $(".Enemy").removeClass("Character");
+          $(".Enemy").appendTo("#EnemyPick");
+          HealthPoints = ($(this).val().HP);
+          AttackPower = ($(this).val().Attack);
+          CounterPower = ($(this).val().CounterAttack);
+          FighterName = ($(this).attr("id"));
+          $("#GameStats").text(FighterName + " HP: " + HealthPoints);
+          console.log($("#Bulbasaur").attr("class"));
+          playSound();
+          
+          
+         }
+         
+        
+         
+
+          
+          
+          
+          //remove character class from this.
+          //Append all .character to Enemy.
+    
     });
+
     $("#AttackButton").on("click",function(){
         E_HealthPoints -= AttackPower;
         HealthPoints -= E_CounterPower;
-        AttackPower +=AttackPower;
+        
         playPunchSound();
         $("#GameStats").text(FighterName + " HP: " + HealthPoints + "  |  " + DefenderName + " HP: " + E_HealthPoints + " You attacked " + DefenderName + " for " + AttackPower + " damage. " + DefenderName + " attacked you for " + E_CounterPower + " damage.");
             if (HealthPoints < 1) {
@@ -228,13 +237,14 @@
             else if (E_HealthPoints < 1) {
                 $("#GameStats").text(FighterName + " defeated " + DefenderName + "!!!");
             }
-    
+     });
+
     $("#ResetButton").on("click",function(){
         Reset();
+   
     });
-    });
-    });
- 
+    
+
     
     
         
