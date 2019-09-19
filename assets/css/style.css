@@ -36,3 +36,12 @@ body, html {
     margin-left: 70px; 
 }
 
+#GameStats {
+    font-family: 'Old  School Adventures';
+   
+}
+
+@font-face {
+    font-family:"Old  School Adventures";
+    src: url("../images/Old\ School\ Adventures.ttf") format("truetype");
+  }

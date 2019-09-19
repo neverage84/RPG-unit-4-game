@@ -35,11 +35,14 @@
                 <a href="https://fontmeme.com/pokemon-font/"><img id="PokemonPick" src="https://fontmeme.com/permalink/190918/bc35c8653ed7e8f4c535126e4dcb854b.png" alt="pokemon-font" border="0"></a>
              </div>
              <div class="row PokemonChoice">
-                    <div class="col-12">
+                    <div class="col-8">
                         <div class="PikDiv Character" id="Pikachu"><img src="assets/images/Pikachu.png" alt="Pikachu" width="200px" height="200px"></div>
                         <div class="BulbDiv Character" id="Bulbasaur"><img src="assets/images/bulbasaur.png" alt="Bulbasaur" width="200px" height="200px"></div>
                         <div class="SquirDiv Character" id="Squirtle"><img src="assets/images/Squirtle.png" alt="Squirtle" width="200px" height="200px"></div>
                         <div class="CharDiv Character" id="Charmander"><img src="assets/images/Charmander.png" alt="Charmander" width="200px" height="200px"></div>
+                    </div>
+                    <div class="col-4" id="GameStats">
+
                     </div>
                 </div>
             <div class="row">
@@ -70,7 +73,7 @@
                         <a href="https://fontmeme.com/pokemon-font/"><img src="https://fontmeme.com/permalink/190918/806d37e1f143dd71c8c1922f30f56c00.png" alt="pokemon-font" border="0"></a>
                         <div class="Attacker" id="SelectedAttacker"></div>
                     </div>
-                    <div class="col-4" id ="GameStats"></div>
+                    
                     <div class="col-4 Defender ">
                         <div class="row">
                             <div class="col-12">
@@ -119,7 +122,7 @@
     var E_HealthPoints = 0;
     var E_AttackPower = 0;
     var E_CounterPower = 0;
-    
+
     $("#Pikachu").val(Pikachu);
     $("#Bulbasaur").val(Bulbasaur);
     $("#Charmander").val(Charmander);
@@ -136,7 +139,8 @@
           $(".Enemy").appendTo("#EnemyPick");
           HealthPoints = ($(this).val().HP);
           AttackPower = ($(this).val().Attack);
-          CounterPower = ($(this).val().CounterAttack); 
+          CounterPower = ($(this).val().CounterAttack);
+          $("#GameStats").text("Attacker HP:" + HealthPoints); 
           
 
           
