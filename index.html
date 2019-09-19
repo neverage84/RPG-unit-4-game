@@ -32,7 +32,13 @@
             </div>
           
             <div class="row">
-                <a href="https://fontmeme.com/pokemon-font/"><img id="PokemonPick" src="https://fontmeme.com/permalink/190918/bc35c8653ed7e8f4c535126e4dcb854b.png" alt="pokemon-font" border="0"></a>
+                <div class="col-9">
+                    <a href="https://fontmeme.com/pokemon-font/"><img id="PokemonPick" src="https://fontmeme.com/permalink/190918/bc35c8653ed7e8f4c535126e4dcb854b.png" alt="pokemon-font" border="0"></a>
+                </div>
+                <div class="col-3">
+                    
+                </div>
+                
              </div>
              <div class="row PokemonChoice">
                     <div class="col-8">
@@ -41,7 +47,16 @@
                         <div class="SquirDiv Character" id="Squirtle"><img src="assets/images/Squirtle.png" alt="Squirtle" width="200px" height="200px"></div>
                         <div class="CharDiv Character" id="Charmander"><img src="assets/images/Charmander.png" alt="Charmander" width="200px" height="200px"></div>
                     </div>
-                    <div class="col-4" id="GameStats">
+                    
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="col-12">
+                            <button id="AttackButton">Attack</button>
+                            </div>
+                        </div>
+                            <div class="col-12">
+                                <div id="GameStats"></div>
+                            </div>
 
                     </div>
                 </div>
@@ -63,18 +78,18 @@
             <div class="container">
                 <div class="row">
                      <div class="col-6">
-                         <button id="AttackButton">Attack</button>
+                         
                     </div>
                 </div>
             
     
                 <div class="row">
-                    <div class="col-4 Attacker">
+                    <div class="col-6 Attacker">
                         <a href="https://fontmeme.com/pokemon-font/"><img src="https://fontmeme.com/permalink/190918/806d37e1f143dd71c8c1922f30f56c00.png" alt="pokemon-font" border="0"></a>
                         <div class="Attacker" id="SelectedAttacker"></div>
                     </div>
                     
-                    <div class="col-4 Defender ">
+                    <div class="col-6 Defender ">
                         <div class="row">
                             <div class="col-12">
                                 <div class="DefenderFont"><a href="https://fontmeme.com/pokemon-font/"><img src="https://fontmeme.com/permalink/190919/e0fe8aee638b9b45c19aada9b76c759a.png" alt="pokemon-font" border="0" class="DefenderFont"></a></div>
@@ -114,11 +129,13 @@
         Attack: 2,
         CounterAttack: 1,
     }
-
+    
+    var FighterName = "";
     var HealthPoints = 0;
     var AttackPower = 0;
     var CounterPower = 0;
 
+    var DefenderName = "";
     var E_HealthPoints = 0;
     var E_AttackPower = 0;
     var E_CounterPower = 0;
@@ -140,8 +157,8 @@
           HealthPoints = ($(this).val().HP);
           AttackPower = ($(this).val().Attack);
           CounterPower = ($(this).val().CounterAttack);
-          $("#GameStats").text("Attacker HP:" + HealthPoints); 
-          
+          FighterName = ($(this).attr("id"));
+          $("#GameStats").text(FighterName + " HP: " + HealthPoints);
 
           
           
@@ -155,9 +172,9 @@
           E_HealthPoints = ($(this).val().HP);
           E_AttackPower = ($(this).val().Attack);
           E_CounterPower = ($(this).val().CounterAttack); 
-          console.log(E_HealthPoints);
-          console.log(E_AttackPower);
-          console.log(E_CounterPower);
+          DefenderName = ($(this).attr("id"));
+          console.log(DefenderName);
+          $("#GameStats").text(DefenderName + " HP: " + E_HealthPoints); 
         
     });
 
