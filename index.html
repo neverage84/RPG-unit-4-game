@@ -76,7 +76,7 @@
                                 <div class="DefenderFont"><a href="https://fontmeme.com/pokemon-font/"><img src="https://fontmeme.com/permalink/190919/e0fe8aee638b9b45c19aada9b76c759a.png" alt="pokemon-font" border="0" class="DefenderFont"></a></div>
                             </div>
                             <div class="col-12">
-                                <div class="SelectedDefender DefenderFont"></div>
+                                <div id="SelectedDefender" class="DefenderFont"></div>
                             </div>
                         </div>
                     </div>
@@ -91,43 +91,23 @@
     $(".Character").on("click",function () {
         var ThisID = $(this).attr('id');
         console.log(ThisID);
-        if (ThisID === "Pikachu")
-        {
-          $("#Pikachu").appendTo("#SelectedAttacker");
-          $("#Bulbasaur").appendTo("#EnemyPick");
-          $("#Bulbasaur").addClass("Enemy");
-          $("#Squirtle").appendTo("#EnemyPick");
-          $("#Squirtle").addClass("Enemy");
-          $("#Charmander").appendTo("#EnemyPick");
-          $("#Charmander").addClass("Enemy");
-        }
-        else if (ThisID === "Bulbasaur")
-        {
-          $("#Bulbasaur").appendTo("#SelectedAttacker");
-          $("#Pikachu").appendTo("#EnemyPick");
-          $("#Squirtle").appendTo("#EnemyPick");
-          $("#Charmander").appendTo("#EnemyPick");  
-        }
-        else if (ThisID === "Squirtle")
-        {
-          $("#Squirtle").appendTo("#SelectedAttacker");
-          $("#Bulbasaur").appendTo("#EnemyPick");
-          $("#Pikachu").appendTo("#EnemyPick");
-          $("#Charmander").appendTo("#EnemyPick");  
-        }
-        else
-        {
-          $("#Charmander").appendTo("#SelectedAttacker");
-          $("#Bulbasaur").appendTo("#EnemyPick");
-          $("#Squirtle").appendTo("#EnemyPick");
-          $("#Pikachu").appendTo("#EnemyPick");  
-        }
+        
+          $(this).appendTo("#SelectedAttacker");
+          $(this).removeClass("Character");
+          $(".Character").addClass("Enemy");
+          $(".Enemy").removeClass("Character");
+          $(".Enemy").appendTo("#EnemyPick");  
+          
+
+          //remove character class from this.
+          //Append all .character to Enemy.
+        
+
+    });
 
     $(".Enemy").on("click",function(){
-        var ThisID = $(this).attr('id');
-        if (ThisID === "Bulbasaur"){
-            $("#Bulbasaur").appendTo(".SelectedDefender");
-        }
+        $(this).appendTo("#SelectedDefender");
+        
     });
     
     
@@ -137,7 +117,7 @@
         
        
 
-    });
+  
     
     
     
