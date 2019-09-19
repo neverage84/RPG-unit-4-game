@@ -177,11 +177,14 @@
           E_CounterPower = ($(this).val().CounterAttack); 
           DefenderName = ($(this).attr("id"));
           console.log($(this).attr("class"));
-          $("#GameStats").text(FighterName + " HP: " + HealthPoints + "    |    " + DefenderName + " HP: " + E_HealthPoints); 
+          $("#GameStats").text(FighterName + " HP: " + HealthPoints + "  |  " + DefenderName + " HP: " + E_HealthPoints); 
         } 
     });
 
     $("#AttackButton").on("click",function(){
+        E_HealthPoints -= AttackPower;
+        HealthPoints -= E_CounterPower;
+        $("#GameStats").text(FighterName + " HP: " + HealthPoints + "  |  " + DefenderName + " HP: " + E_HealthPoints + "You attacked " + DefenderName + " for " + AttackPower + " damage. " + DefenderName + " attacked you for " + E_CounterPower + " damage.");
         
 
     });
