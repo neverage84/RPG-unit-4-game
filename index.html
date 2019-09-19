@@ -119,6 +119,10 @@
         <source src="assets/images/Pokémon Theme Song.mp3" type="audio/mpeg">
     </audio>
 
+    <audio id="audio" src="assets/images/Laser_Cannon-Mike_Koenig-797224747.mp3" autoplay="false"> </audio>
+
+    <audio id="punch" src="assets/images/punch_or_whack_-Vladimir-403040765.mp3" autoplay="false"> </audio>
+
     <script type="text/javascript">
 
     var Pikachu = {
@@ -177,6 +181,16 @@
         $("#GameStats").empty();
     };
 
+    function playSound() {
+        var sound = document.getElementById("audio");
+        sound.play();
+    };
+
+    function playPunchSound() {
+        var sound = document.getElementById("punch");
+        sound.play();
+    };
+
 
     $(".Character").on("click",function () {
         
@@ -191,6 +205,7 @@
           CounterPower = ($(this).val().CounterAttack);
           FighterName = ($(this).attr("id"));
           $("#GameStats").text(FighterName + " HP: " + HealthPoints);
+          playSound();
           
           
          }
@@ -211,13 +226,14 @@
           DefenderName = ($(this).attr("id"));
           console.log($(this).attr("class"));
           $("#GameStats").text(FighterName + " HP: " + HealthPoints + "  |  " + DefenderName + " HP: " + E_HealthPoints); 
-          
+          playSound();
         } 
     });
 
     $("#AttackButton").on("click",function(){
         E_HealthPoints -= AttackPower;
         HealthPoints -= E_CounterPower;
+        playPunchSound();
         $("#GameStats").text(FighterName + " HP: " + HealthPoints + "  |  " + DefenderName + " HP: " + E_HealthPoints + " You attacked " + DefenderName + " for " + AttackPower + " damage. " + DefenderName + " attacked you for " + E_CounterPower + " damage.");
             if (HealthPoints < 1) {
                 $("#GameStats").text(DefenderName + " defeated " + FighterName + "!!!");
