@@ -32,11 +32,24 @@
             </div>
           
             <div class="row">
-                <div class="col-9">
+                <div class="col-8">
                     <a href="https://fontmeme.com/pokemon-font/"><img id="PokemonPick" src="https://fontmeme.com/permalink/190918/bc35c8653ed7e8f4c535126e4dcb854b.png" alt="pokemon-font" border="0"></a>
                 </div>
-                <div class="col-3">
+                <div class="col-4 ButtonArea">
+                    <div class="row">
+                        <div class="col-4">
+                          <h1>STATS</h1>  
+                        </div>
+                        <div class="col-4 AttackBtn" >
+                          <button class= "btn-default btn-lg" id="AttackButton">Attack</button>
+                        </div>
+                        <div class="col-3">
+                          <button class= "btn-default btn-lg" id="ResetButton">Reset</button>
+                        </div>
                     
+                    </div>
+                    
+                     
                 </div>
                 
              </div>
@@ -47,11 +60,13 @@
                         <div class="SquirDiv Character Reset" id="Squirtle"><img src="assets/images/Squirtle.png" alt="Squirtle" width="200px" height="200px"></div>
                         <div class="CharDiv Character Reset" id="Charmander"><img src="assets/images/Charmander.png" alt="Charmander" width="200px" height="200px"></div>
                     </div>
+                   
+                        
                     
                     <div class="col-4">
                         <div class="row">
                             <div class="col-12">
-                            <button id="AttackButton">Attack</button>
+                            
                             </div>
                         </div>
                             <div class="col-12">
@@ -146,19 +161,20 @@
     $("#Squirtle").val(Squirtle);
 
     function Reset(){
-        var FighterName = "";
-        var HealthPoints = 0;
-        var AttackPower = 0;
-        var CounterPower = 0;
+        FighterName = "";
+        HealthPoints = 0;
+        AttackPower = 0;
+        CounterPower = 0;
 
-        var DefenderName = "";
-        var E_HealthPoints = 0;
-        var E_AttackPower = 0;
-        var E_CounterPower = 0;
+        DefenderName = "";
+        E_HealthPoints = 0;
+        E_AttackPower = 0;
+        E_CounterPower = 0;
 
         $(".Reset").addClass("Character");
-        $(".Reset").removeClass("Enemy");
-        $(".Reset").appendTo(".PokemonChoice");
+        $(".Character").removeClass("Enemy");
+        $(".Character").appendTo(".PokemonChoice");
+        $("#GameStats").empty();
     };
 
 
@@ -175,6 +191,7 @@
           CounterPower = ($(this).val().CounterAttack);
           FighterName = ($(this).attr("id"));
           $("#GameStats").text(FighterName + " HP: " + HealthPoints);
+          
           
          }
          
@@ -194,6 +211,7 @@
           DefenderName = ($(this).attr("id"));
           console.log($(this).attr("class"));
           $("#GameStats").text(FighterName + " HP: " + HealthPoints + "  |  " + DefenderName + " HP: " + E_HealthPoints); 
+          
         } 
     });
 
@@ -207,7 +225,10 @@
             else if (E_HealthPoints < 1) {
                 $("#GameStats").text(FighterName + " defeated " + DefenderName + "!!!");
             }
-        
+    
+    $("#ResetButton").on("click",function(){
+        Reset();
+    });
 
     });
 

@@ -2,6 +2,7 @@ body, html {
     height: 100%;
 }
 
+
 .bg {
     background-image: url("../images/battlebackground.png");
     background-repeat: no-repeat;
@@ -9,6 +10,12 @@ body, html {
     height: 100%;
 }
 
+h1 {
+    font-family: 'Old  School Adventures';
+    font-size: 36px;
+    float: left;
+    margin-left: 10px;
+}
 #logo {
     display: block;
     margin: 0 auto;
@@ -34,17 +41,22 @@ body, html {
 
 #AttackButton {
     display:block;
-    margin-left: 70px; 
+    right:0;
+    float: right;
 }
 
 #GameStats {
     font-family: 'Old  School Adventures';
     background-color: lightgray;
-    width: 500px;
+    width: 450px;
     height: 100px;
     border: ridge;
     float: right;
    
+}
+
+.AttackBtn {
+   margin-left: 10px;
 }
 
 @font-face {
