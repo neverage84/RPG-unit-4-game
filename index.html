@@ -42,8 +42,19 @@
                     </div>
                 </div>
             <div class="row">
-                <a href="https://fontmeme.com/pokemon-font/"><img src="https://fontmeme.com/permalink/190918/a4962524779933b2b0b9eb6049ba5f57.png" alt="pokemon-font" border="0"></a> </div>
-    
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-12">
+                                <a href="https://fontmeme.com/pokemon-font/"><img src="https://fontmeme.com/permalink/190919/e45f3b788a4469e344ece01935c5845a.png" alt="pokemon-font" border="0"></a>   
+                        </div>
+                        <div class="col-12">
+                          <div id="EnemyPick"></div>  
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
     
             <div class="container">
                 <div class="row">
@@ -56,16 +67,13 @@
                 <div class="row">
                     <div class="col-6 Attacker">
                         <a href="https://fontmeme.com/pokemon-font/"><img src="https://fontmeme.com/permalink/190918/806d37e1f143dd71c8c1922f30f56c00.png" alt="pokemon-font" border="0"></a>
-                    <div id="SelectedAttacker">
-
+                        <div id="SelectedAttacker"></div>
                     </div>
-                    </div> 
-                <div class="col-6 Defender">
-                    <a href="https://fontmeme.com/pokemon-font/"><img src="https://fontmeme.com/permalink/190918/806c636a8103a94cb1f082f59db01c6a.png" id="DefenderFont"alt="pokemon-font" border="0"></a>
+                    <div class="col-6 Defender">
+                        <a href="https://fontmeme.com/pokemon-font/"><img id="DefenderFont" src="https://fontmeme.com/permalink/190919/e0fe8aee638b9b45c19aada9b76c759a.png" alt="pokemon-font" border="0"></a>
+                        <div id="SelectedDefender"></div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
     <audio autoplay>
         <source src="assets/images/Pokémon Theme Song.mp3" type="audio/mpeg">
     </audio>
@@ -79,8 +87,31 @@
         if (ThisID === "Pikachu")
         {
           $("#Pikachu").appendTo("#SelectedAttacker");
+          $("#Bulbasaur").appendTo("#EnemyPick");
+          $("#Squirtle").appendTo("#EnemyPick");
+          $("#Charmander").appendTo("#EnemyPick");
         }
-        
+        else if (ThisID === "Bulbasaur")
+        {
+          $("#Bulbasaur").appendTo("#SelectedAttacker");
+          $("#Pikachu").appendTo("#EnemyPick");
+          $("#Squirtle").appendTo("#EnemyPick");
+          $("#Charmander").appendTo("#EnemyPick");  
+        }
+        else if (ThisID === "Squirtle")
+        {
+          $("#Squirtle").appendTo("#SelectedAttacker");
+          $("#Bulbasaur").appendTo("#EnemyPick");
+          $("#Pikachu").appendTo("#EnemyPick");
+          $("#Charmander").appendTo("#EnemyPick");  
+        }
+        else
+        {
+          $("#Charmander").appendTo("#SelectedAttacker");
+          $("#Bulbasaur").appendTo("#EnemyPick");
+          $("#Squirtle").appendTo("#EnemyPick");
+          $("#Pikachu").appendTo("#EnemyPick");  
+        }
         
 
 
