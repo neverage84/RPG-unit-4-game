@@ -119,6 +119,7 @@
     var E_HealthPoints = 0;
     var E_AttackPower = 0;
     var E_CounterPower = 0;
+    
     $("#Pikachu").val(Pikachu);
     $("#Bulbasaur").val(Bulbasaur);
     $("#Charmander").val(Charmander);
@@ -136,9 +137,7 @@
           HealthPoints = ($(this).val().HP);
           AttackPower = ($(this).val().Attack);
           CounterPower = ($(this).val().CounterAttack); 
-          console.log($("#Bulbasaur").val());
-          console.log($("#Charmander").val());
-          console.log($("#Squirtle").val());
+          
 
           
           
@@ -149,6 +148,12 @@
     $(".Enemy").on("click", function(){
 
         $(this).appendTo("#SelectedDefender");
+          E_HealthPoints = ($(this).val().HP);
+          E_AttackPower = ($(this).val().Attack);
+          E_CounterPower = ($(this).val().CounterAttack); 
+          console.log(E_HealthPoints);
+          console.log(E_AttackPower);
+          console.log(E_CounterPower);
         
     });
 
