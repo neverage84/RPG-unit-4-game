@@ -124,7 +124,6 @@
     <audio id="punch" src="assets/images/punch_or_whack_-Vladimir-403040765.mp3" autoplay="false"> </audio>
 
     <script type="text/javascript">
-
     var Pikachu = {
         HP: 400,
         Attack: 7,
@@ -136,13 +135,11 @@
         Attack: 10,
         CounterAttack: 20,
     }
-
     var Bulbasaur = {
         HP: 475,
         Attack: 4,
         CounterAttack: 8,
     }
-
     var Squirtle = {
         HP: 175,
         Attack: 2,
@@ -153,45 +150,36 @@
     var HealthPoints = 0;
     var AttackPower = 0;
     var CounterPower = 0;
-
     var DefenderName = "";
     var E_HealthPoints = 0;
     var E_AttackPower = 0;
     var E_CounterPower = 0;
-
     $("#Pikachu").val(Pikachu);
     $("#Bulbasaur").val(Bulbasaur);
     $("#Charmander").val(Charmander);
     $("#Squirtle").val(Squirtle);
-
     function Reset(){
         FighterName = "";
         HealthPoints = 0;
         AttackPower = 0;
         CounterPower = 0;
-
         DefenderName = "";
         E_HealthPoints = 0;
         E_AttackPower = 0;
         E_CounterPower = 0;
-
         $(".Reset").addClass("Character");
         $(".Character").removeClass("Enemy");
         $(".Character").appendTo(".PokemonChoice");
         $("#GameStats").empty();
     };
-
     function playSound() {
         var sound = document.getElementById("audio");
         sound.play();
     };
-
     function playPunchSound() {
         var sound = document.getElementById("punch");
         sound.play();
     };
-
-
     $(".Character").on("click",function () {
         
          if (HealthPoints === 0) {
@@ -210,15 +198,14 @@
           
          }
          
-
           
           
           
-
           //remove character class from this.
           //Append all .character to Enemy.
     $(".Enemy").on("click", function(){
         if (HealthPoints !== 0 && E_HealthPoints === 0) {
+            console.log(HealthPoints);
         $(this).appendTo("#SelectedDefender");
           E_HealthPoints = ($(this).val().HP);
           E_AttackPower = ($(this).val().Attack);
@@ -229,10 +216,10 @@
           playSound();
         } 
     });
-
     $("#AttackButton").on("click",function(){
         E_HealthPoints -= AttackPower;
         HealthPoints -= E_CounterPower;
+        AttackPower +=AttackPower;
         playPunchSound();
         $("#GameStats").text(FighterName + " HP: " + HealthPoints + "  |  " + DefenderName + " HP: " + E_HealthPoints + " You attacked " + DefenderName + " for " + AttackPower + " damage. " + DefenderName + " attacked you for " + E_CounterPower + " damage.");
             if (HealthPoints < 1) {
@@ -245,20 +232,14 @@
     $("#ResetButton").on("click",function(){
         Reset();
     });
-
     });
-
     });
-
  
     
     
         
-
-
         
        
-
   
     
     
