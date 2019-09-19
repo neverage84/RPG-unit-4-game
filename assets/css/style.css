@@ -27,7 +27,7 @@ body, html {
     display: inline-block;
 }
 
-#DefenderFont {
+.DefenderFont {
     float: right;
 }
 
@@ -35,3 +35,4 @@ body, html {
     display:block;
     margin-left: 70px; 
 }
+
