@@ -170,15 +170,15 @@
           //remove character class from this.
           //Append all .character to Enemy.
     $(".Enemy").on("click", function(){
-
+        if (E_HealthPoints === 0) {
         $(this).appendTo("#SelectedDefender");
           E_HealthPoints = ($(this).val().HP);
           E_AttackPower = ($(this).val().Attack);
           E_CounterPower = ($(this).val().CounterAttack); 
           DefenderName = ($(this).attr("id"));
           console.log($(this).attr("class"));
-          $("#GameStats").text(FighterName + " HP: " + HealthPoints + "        " + DefenderName + " HP: " + E_HealthPoints); 
-         
+          $("#GameStats").text(FighterName + " HP: " + HealthPoints + "    |    " + DefenderName + " HP: " + E_HealthPoints); 
+        } 
     });
 
     $("#AttackButton").on("click",function(){
