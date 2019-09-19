@@ -159,7 +159,7 @@
           CounterPower = ($(this).val().CounterAttack);
           FighterName = ($(this).attr("id"));
           $("#GameStats").text(FighterName + " HP: " + HealthPoints);
-          (".Character").disabled = true;
+          
          }
          
 
@@ -177,9 +177,8 @@
           E_CounterPower = ($(this).val().CounterAttack); 
           DefenderName = ($(this).attr("id"));
           console.log($(this).attr("class"));
-          $("#GameStats").text += (DefenderName + " HP: " + E_HealthPoints); 
-         alert(FighterName);
-         alert(DefenderName);
+          $("#GameStats").text(FighterName + " HP: " + HealthPoints + "        " + DefenderName + " HP: " + E_HealthPoints); 
+         
     });
 
     $("#AttackButton").on("click",function(){
