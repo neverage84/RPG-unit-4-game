@@ -148,7 +148,7 @@
 
     $(".Character").on("click",function () {
         
-        
+         if (HealthPoints === 0) {
           $(this).appendTo("#SelectedAttacker");
           $(this).removeClass("Character");
           $(".Character").addClass("Enemy");
@@ -159,6 +159,9 @@
           CounterPower = ($(this).val().CounterAttack);
           FighterName = ($(this).attr("id"));
           $("#GameStats").text(FighterName + " HP: " + HealthPoints);
+          (".Character").disabled = true;
+         }
+         
 
           
           
@@ -173,9 +176,10 @@
           E_AttackPower = ($(this).val().Attack);
           E_CounterPower = ($(this).val().CounterAttack); 
           DefenderName = ($(this).attr("id"));
-          console.log(DefenderName);
-          $("#GameStats").text(DefenderName + " HP: " + E_HealthPoints); 
-        
+          console.log($(this).attr("class"));
+          $("#GameStats").text += (DefenderName + " HP: " + E_HealthPoints); 
+         alert(FighterName);
+         alert(DefenderName);
     });
 
     $("#AttackButton").on("click",function(){
