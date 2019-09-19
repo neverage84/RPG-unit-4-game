@@ -66,11 +66,12 @@
             
     
                 <div class="row">
-                    <div class="col-6 Attacker">
+                    <div class="col-4 Attacker">
                         <a href="https://fontmeme.com/pokemon-font/"><img src="https://fontmeme.com/permalink/190918/806d37e1f143dd71c8c1922f30f56c00.png" alt="pokemon-font" border="0"></a>
                         <div id="SelectedAttacker"></div>
                     </div>
-                    <div class="col-6 Defender ">
+                    <div class="col-4 GameStats"></div>
+                    <div class="col-4 Defender ">
                         <div class="row">
                             <div class="col-12">
                                 <div class="DefenderFont"><a href="https://fontmeme.com/pokemon-font/"><img src="https://fontmeme.com/permalink/190919/e0fe8aee638b9b45c19aada9b76c759a.png" alt="pokemon-font" border="0" class="DefenderFont"></a></div>
@@ -87,6 +88,29 @@
 
     <script type="text/javascript">
 
+    var Pikacku = {
+        HP: 100,
+        Attack: 7,
+        CounterAttack: 4,
+    }
+    
+    var Charmander = {
+        HP: 75,
+        Attack: 10,
+        CounterAttack: 5,
+    }
+
+    var Bulbasaur = {
+        HP: 150,
+        Attack: 4,
+        CounterAttack: 2,
+    }
+
+    var Squirtle = {
+        HP: 175,
+        Attack: 2,
+        CounterAttack: 1,
+    }
 
     $(".Character").on("click",function () {
         var ThisID = $(this).attr('id');
@@ -98,7 +122,7 @@
           $(".Enemy").removeClass("Character");
           $(".Enemy").appendTo("#EnemyPick");  
           
-          console.log($(this).attr('class'));
+          console.log(Pikacku.HP);
           
 
           //remove character class from this.
@@ -106,6 +130,8 @@
     $(".Enemy").on("click", function(){
 
         $(this).appendTo("#SelectedDefender");
+    
+        
 
     });
 
