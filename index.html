@@ -98,17 +98,20 @@
           $(".Enemy").removeClass("Character");
           $(".Enemy").appendTo("#EnemyPick");  
           
+          console.log($(this).attr('class'));
+          
 
           //remove character class from this.
           //Append all .character to Enemy.
-        
+    $(".Enemy").on("click", function(){
 
-    });
-
-    $(".Enemy").on("click",function(){
         $(this).appendTo("#SelectedDefender");
-        
+
     });
+
+    });
+
+ 
     
     
         
