@@ -141,7 +141,7 @@
         CounterAttack: 8,
     }
     var Squirtle = {
-        HP: 175,
+        HP: 550,
         Attack: 2,
         CounterAttack: 4,
     }
@@ -226,8 +226,13 @@
     });
 
     $("#AttackButton").on("click",function(){
+        if (HealthPoints !== 0 && E_HealthPoints !== 0) {
+
+        
         E_HealthPoints -= AttackPower;
         HealthPoints -= E_CounterPower;
+        AttackPower += AttackPower;
+       
         
         playPunchSound();
         $("#GameStats").text(FighterName + " HP: " + HealthPoints + "  |  " + DefenderName + " HP: " + E_HealthPoints + " You attacked " + DefenderName + " for " + AttackPower + " damage. " + DefenderName + " attacked you for " + E_CounterPower + " damage.");
@@ -237,6 +242,8 @@
             else if (E_HealthPoints < 1) {
                 $("#GameStats").text(FighterName + " defeated " + DefenderName + "!!!");
             }
+
+        }
      });
 
     $("#ResetButton").on("click",function(){
