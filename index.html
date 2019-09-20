@@ -163,10 +163,12 @@
     var E_HealthPoints = 0;
     var E_AttackPower = 0;
     var E_CounterPower = 0;
+    var Count = 0;
     $("#Pikachu").val(Pikachu);
     $("#Bulbasaur").val(Bulbasaur);
     $("#Charmander").val(Charmander);
     $("#Squirtle").val(Squirtle);
+
 
     function Reset(){
         FighterName = "";
@@ -251,19 +253,30 @@
        
         
         playPunchSound();
-        $("#GameStats").html(FighterName + " HP: " + HealthPoints + " | " + DefenderName + " HP: " + E_HealthPoints + "<br>" + " You attacked " + DefenderName + " for " + AttackPower + " damage. " + "<br>" + DefenderName + " attacked you for " + E_CounterPower + " damage.");
-            if (HealthPoints < 1) {
+        $("#GameStats").html(FighterName + " HP: " + HealthPoints + " | " + DefenderName + " HP: " + E_HealthPoints + "<br>" + " You attacked " + DefenderName + " for " + AttackPower + " damage. " + "<br>" + DefenderName + " attacked you for " + E_CounterPower + " damage.");    
+        
+        if (Count < 3) {
+                if (HealthPoints < 1) {
                 $("#GameStats").text(DefenderName + " defeated " + FighterName + "!!!");
-            }
-            else if (E_HealthPoints < 1) {
-                $(".Final").hide();
-                alert("Click a new Enemy");
-               
+                }
+                else if (E_HealthPoints < 1) {
 
+                $(".Final").hide();
+                Count += 1; 
+                if (Count === 3) {
+                    $("#GameStats").text(FighterName + " wins!!!");  
+                    }
+                else  { alert("Click a new Enemy");
+                
+                alert(Count);  
+                }
+                }
             }
+            
+        }
 
         }
-     });
+     );
 
     $("#ResetButton").on("click",function(){
         Reset();
