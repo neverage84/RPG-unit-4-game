@@ -177,9 +177,11 @@
         E_HealthPoints = 0;
         E_AttackPower = 0;
         E_CounterPower = 0;
+        $(".Reset").show();
         $(".Reset").addClass("Character");
         $(".Character").removeClass("Enemy");
         $(".Character").removeClass("Final");
+        $(".Character").removeClass("Selected");
         $(".Character").appendTo(".PokemonChoice");
         $("#GameStats").empty();
         $("#Original").appendTo("#GameStats");
@@ -195,23 +197,24 @@
     };
     $(".Character").on("click",function () {
 
-        if (HealthPoints !== 0 && E_HealthPoints === 0) {
+        if (HealthPoints !== 0 && E_HealthPoints < 1) {
             console.log(HealthPoints);
-        $(this).appendTo("#SelectedDefender");
-        $(this).addClass("Final");
-          E_HealthPoints = ($(this).val().HP);
-          E_AttackPower = ($(this).val().Attack);
-          E_CounterPower = ($(this).val().CounterAttack); 
-          DefenderName = ($(this).attr("id"));
-          console.log($(this).attr("class"));
-          $("#GameStats").text(FighterName + " HP: " + HealthPoints + "  |  " + DefenderName + " HP: " + E_HealthPoints); 
-          playSound();
+            $(this).appendTo("#SelectedDefender");
+            $(this).addClass("Final");
+             E_HealthPoints = ($(this).val().HP);
+            E_AttackPower = ($(this).val().Attack);
+            E_CounterPower = ($(this).val().CounterAttack); 
+            DefenderName = ($(this).attr("id"));
+            console.log($(this).attr("class"));
+            $("#GameStats").text(FighterName + " HP: " + HealthPoints + "  |  " + DefenderName + " HP: " + E_HealthPoints); 
+            playSound();
 
         }
 
 
           else if (HealthPoints === 0) {
           $(this).appendTo("#SelectedAttacker");
+          $(this).addClass("Selected");
           $(this).removeClass("Character");
           $(".Character").addClass("Enemy");
           $(".Enemy").removeClass("Character");
@@ -241,10 +244,10 @@
     $("#AttackButton").on("click",function(){
         if (HealthPoints !== 0 && E_HealthPoints !== 0) {
 
-        
+        var attack = $(".Selected").val().Attack;
         E_HealthPoints -= AttackPower;
         HealthPoints -= E_CounterPower;
-        AttackPower += AttackPower;
+        AttackPower += attack;
        
         
         playPunchSound();
@@ -254,8 +257,9 @@
             }
             else if (E_HealthPoints < 1) {
                 $(".Final").hide();
-                E_HealthPoints = 0;
                 alert("Click a new Enemy");
+               
+
             }
 
         }
