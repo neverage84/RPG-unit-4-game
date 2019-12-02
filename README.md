@@ -1,5 +1,10 @@
 Here's how the app works:
 
+https://uwa.bootcampcontent.com/UWA-Bootcamp/UW-SEA-FSF-PT-08-2019-U-C/raw/master/class-content/04-jquery/02-Homework/Instructions/Images/2-StarWars.jpg
+
+
+Watch the demo
+https://www.youtube.com/watch?v=klN2-ITjRt8&feature=youtu.be
 
 
 When the game starts, the player will choose a character by clicking on the fighter's picture. The player will fight as that character for the rest of the game.
