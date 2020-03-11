@@ -1,11 +1,4 @@
-Here's how the app works:
-
-https://uwa.bootcampcontent.com/UWA-Bootcamp/UW-SEA-FSF-PT-08-2019-U-C/raw/master/class-content/04-jquery/02-Homework/Instructions/Images/2-StarWars.jpg
-
-
-Watch the demo
-https://www.youtube.com/watch?v=klN2-ITjRt8&feature=youtu.be
-
+## Here's how the app works:
 
 When the game starts, the player will choose a character by clicking on the fighter's picture. The player will fight as that character for the rest of the game.
 The player must then defeat all of the remaining fighters. Enemies should be moved to a different area of the screen.
@@ -17,9 +10,6 @@ The player will now be able to click the attack button.
 
 Whenever the player clicks attack, their character damages the defender. The opponent will lose HP (health points). These points are displayed at the bottom of the defender's picture. 
 The opponent character will instantly counter the attack. When that happens, the player's character will lose some of their HP. These points are shown at the bottom of the player character's picture.
-
-
-
 
 
 The player will keep hitting the attack button in an effort to defeat their opponent.
@@ -34,7 +24,7 @@ The player wins the game by defeating all enemy characters. The player loses the
 
 
 
-Option 2 Game design notes
+## Design notes
 
 
 Each character in the game has 3 attributes: Health Points, Attack Power and Counter Attack Power.
